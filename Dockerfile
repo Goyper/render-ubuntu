@@ -37,5 +37,5 @@ RUN wget -O gotty.tar.gz https://github.com/yudai/gotty/releases/download/v1.0.1
 # Expone el puerto 8080 para Gotty y el 22 para SSH
 EXPOSE 8080 22
 
-# Inicia SSH y Gotty con soporte de pegado con el mouse
-CMD service ssh start && gotty -w --title-format "Terminal Web" --permit-write -p 8080 /bin/bash
+# Inicia SSH y Gotty sin el conflicto de -w y sin bucles infinitos
+CMD service ssh start && gotty -p 8080 --title-format "Terminal Web" /bin/bash
